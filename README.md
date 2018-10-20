@@ -1,2 +1,1 @@
-# ansible-role-grafana
-ansible grafana role
+# ansible grafana role

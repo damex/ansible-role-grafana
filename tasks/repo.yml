@@ -1,0 +1,7 @@
+---
+- name: ensure grafana apt repository is present
+  apt_repository:
+    repo: "{{ grafana_repository }}"
+    state: "present"
+    update_cache: true
+  become: true

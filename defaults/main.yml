@@ -1,0 +1,2 @@
+---
+grafana_repository: "deb [arch=amd64] https://packagecloud.io/grafana/stable/debian/ stretch main"

@@ -1,0 +1,8 @@
+---
+- import_tasks: key.yml
+- import_tasks: repo.yml
+- include_role:
+    name: package
+  vars:
+    packages:
+      - grafana
