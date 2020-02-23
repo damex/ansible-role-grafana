@@ -19,10 +19,29 @@ grafana_instance_name: "{{ inventory_hostname }}"
 
 grafana_paths_provisioning: "{{ grafana_conf_dir }}/provisioning"
 
+grafana_server_protocol: "http"
+grafana_server_http_addr: ""
+grafana_server_http_port: 3000
+grafana_server_domain: "localhost"
+grafana_server_enforce_domain: false
+
 grafana_database_type: "sqlite3"
 grafana_database_host: ""
 grafana_database_name: ""
 grafana_database_user: ""
 grafana_database_password: ""
 
+grafana_security_disable_initial_admin_creation: false
 grafana_security_admin_user: ""
+grafana_security_admin_password: ""
+
+grafana_dashboards_versions_to_keep: 20
+
+grafana_metrics_enabled: true
+grafana_metrics_interval_seconds: 60s
+grafana_metrics_disable_total_stats: false
+grafana_metrics_basic_auth_username: ""
+grafana_metrics_basic_auth_password: ""
+grafana_metrics_graphite_address: ""
+grafana_metrics_graphite_prefix: "grafana.{{ inventory_hostname }}."
+grafana_grafana_com_url: "https://grafana.com"

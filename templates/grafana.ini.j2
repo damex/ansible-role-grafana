@@ -20,21 +20,11 @@ provisioning = {{ grafana_paths_provisioning }}
 
 #################################### Server ####################################
 [server]
-# Protocol (http, https, h2, socket)
-;protocol = http
-
-# The ip address to bind to, empty will bind to all interfaces
-;http_addr =
-
-# The http port  to use
-;http_port = 3000
-
-# The public facing domain name used to access grafana from a browser
-;domain = localhost
-
-# Redirect to correct domain if host header does not match domain
-# Prevents DNS rebinding attacks
-;enforce_domain = false
+protocol = {{ grafana_server_protocol }}
+http_addr = {{ grafana_server_http_addr | default(omit) }}
+http_port = {{ grafana_server_http_port }}
+domain = {{ grafana_server_domain }}
+enforce_domain = {{ grafana_server_enforce_domain }}
 
 # The full public facing url you use in browser, used for redirects and emails
 # If you use reverse proxy and sub path specify full url (with sub path)
@@ -143,13 +133,8 @@ password = """{{ grafana_database_password }}"""
 
 #################################### Security ####################################
 [security]
-# disable creation of admin user on first start of grafana
-;disable_initial_admin_creation = false
-
-# default admin user, created on startup
+disable_initial_admin_creation = {{ grafana_security_disable_initial_admin_creation }}
 admin_user = {{ grafana_security_admin_user }}
-
-# default admin password, can be changed before first start of grafana,  or in profile settings
 admin_password = {{ grafana_security_admin_password }}
 
 # used for signing
@@ -211,12 +196,9 @@ admin_password = {{ grafana_security_admin_password }}
 # remove expired snapshot
 ;snapshot_remove_expired = true
 
-#################################### Dashboards History ##################
 [dashboards]
-# Number dashboard versions to keep (per dashboard). Default: 20, Minimum: 1
-;versions_to_keep = 20
+versions_to_keep = {{ grafana_dashboards_versions_to_keep }}
 
-#################################### Users ###############################
 [users]
 # disable user signup / registration
 ;allow_sign_up = true
@@ -582,27 +564,17 @@ admin_password = {{ grafana_security_admin_password }}
 #################################### Internal Grafana Metrics ##########################
 # Metrics available at HTTP API Url /metrics
 [metrics]
-# Disable / Enable internal metrics
-;enabled           = true
-# Graphite Publish interval
-;interval_seconds  = 10
-# Disable total stats (stat_totals_*) metrics to be generated
-;disable_total_stats = false
-
-#If both are set, basic auth will be required for the metrics endpoint.
-; basic_auth_username =
-; basic_auth_password =
-
-# Send internal metrics to Graphite
+enabled = {{ grafana_metrics_enabled }}
+interval_seconds = {{ grafana_metrics_interval_seconds }}
+disable_total_stats = {{ grafana_metrics_disable_total_stats }}
+basic_auth_username = {{ grafana_metrics_basic_auth_username | default(omit) }}
+basic_auth_password = {{ grafana_metrics_basic_auth_password | default(omit) }}
 [metrics.graphite]
-# Enable by setting the address setting (ex localhost:2003)
-;address =
-;prefix = prod.grafana.%(instance_name)s.
+address = {{ grafana_metrics_graphite_address | default(omit) }}
+prefix = grafana.%(instance_name)s.
 
-#################################### Grafana.com integration  ##########################
-# Url used to import dashboards directly from Grafana.com
 [grafana_com]
-;url = https://grafana.com
+url = {{ grafana_grafana_com_url }}
 
 #################################### Distributed tracing ############
 [tracing.jaeger]
