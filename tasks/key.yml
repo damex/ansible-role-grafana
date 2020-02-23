@@ -1,7 +1,0 @@
----
-- name: ensure grafana official gpg key is present
-  apt_key:
-    id: F273FCD8
-    url: https://packagecloud.io/gpg.key
-    state: present
-  become: true
