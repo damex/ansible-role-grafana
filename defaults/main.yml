@@ -1,2 +1,10 @@
 ---
-grafana_repository: "deb [arch=amd64] https://packagecloud.io/grafana/stable/debian/ stretch main"
+grafana_package_name: "grafana"
+grafana_package_version: ""
+grafana_package_state: "present"
+
+grafana_repository_key_id: "24098CB6"
+grafana_repository_key_url: "https://packages.grafana.com/gpg.key"
+grafana_repository_key_state: "present"
+grafana_repository: "deb https://packages.grafana.com/oss/deb stable main"
+grafana_repository_name: "grafana"

@@ -1,0 +1,15 @@
+---
+- name: ensure grafana key, repository and package
+  include_role:
+    name: "damex.package"
+  vars:
+    package_repository_keys:
+      - id: "{{ grafana_repository_key_id }}"
+        url: "{{ grafana_repository_key_url }}"
+        state: "{{ grafana_repository_key_state }}"
+    package_repositories:
+      - name: "{{ grafana_repository_name }}"
+        repository: "{{ grafana_repository }}"
+    package_packages:
+      - name: "{{ grafana_package_name }}"
+        state: "{{ grafana_package_state }}"
