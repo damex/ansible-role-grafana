@@ -1,0 +1,7 @@
+---
+- name: ensure grafana.ini
+  template:
+    src: "grafana.ini.j2"
+    dest: "{{ grafana_conf_file }}"
+  become: true
+  register: grafana_conf

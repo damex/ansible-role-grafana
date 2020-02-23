@@ -2,5 +2,8 @@
 - name: ensure grafana
   block:
     - import_tasks: package.yml
+    - import_tasks: configuration.yml
+    - import_tasks: provisioning.yml
+    - import_tasks: systemd.yml
   tags:
     - grafana

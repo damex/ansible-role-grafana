@@ -1,0 +1,8 @@
+---
+- name: ensure datasources
+  template:
+    src: "datasources.yml.j2"
+    dest: "{{ grafana_paths_provisioning }}/datasources/{{ item.name }}.yml"
+  become: true
+  loop: "{{ grafana_datasources }}"
+  register: grafana_datasources_state

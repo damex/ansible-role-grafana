@@ -1,0 +1,18 @@
+---
+- name: ensure systemd
+  block:
+    - name: ensure grafana service is enabled
+      systemd:
+        name: "{{ grafana_service_name }}"
+        enabled: true
+    - name: ensure grafana service is started
+      systemd:
+        name: "{{ grafana_service_name }}"
+        state: "started"
+    - name: ensure grafana service is restarted
+      systemd:
+        name: "{{ grafana_service_name }}"
+        state: "restarted"
+      when: grafana_conf.changed or
+        grafana_datasources_state.changed
+  become: true

@@ -8,3 +8,21 @@ grafana_repository_key_url: "https://packages.grafana.com/gpg.key"
 grafana_repository_key_state: "present"
 grafana_repository: "deb https://packages.grafana.com/oss/deb stable main"
 grafana_repository_name: "grafana"
+
+grafana_service_name: "grafana-server"
+
+grafana_conf_dir: "/etc/grafana"
+grafana_conf_file: "{{ grafana_conf_dir }}/grafana.ini"
+
+grafana_app_mode: "production"
+grafana_instance_name: "{{ inventory_hostname }}"
+
+grafana_paths_provisioning: "{{ grafana_conf_dir }}/provisioning"
+
+grafana_database_type: "sqlite3"
+grafana_database_host: ""
+grafana_database_name: ""
+grafana_database_user: ""
+grafana_database_password: ""
+
+grafana_security_admin_user: ""
