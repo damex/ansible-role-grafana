@@ -1,0 +1,16 @@
+---
+- name: ensure file_sd on prometheus host
+  file:
+    path: "/etc/prometheus/file_sd/grafana"
+    state: directory
+  loop: "{{ grafana_prometheus_hosts }}"
+  delegate_to: "{{ item }}"
+  become: true
+
+- name: ensure sd yml o prometheus host
+  template:
+    src: "file_sd.yml.j2"
+    dest: "/etc/prometheus/file_sd/grafana/{{ inventory_hostname }}.yml"
+  loop: "{{ grafana_prometheus_hosts }}"
+  delegate_to: "{{ item }}"
+  become: true

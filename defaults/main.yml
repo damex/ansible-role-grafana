@@ -1,4 +1,6 @@
 ---
+grafana_prometheus_hosts: []
+
 grafana_package_name: "grafana"
 grafana_package_version: ""
 grafana_package_state: "present"
