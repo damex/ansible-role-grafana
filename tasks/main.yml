@@ -4,7 +4,7 @@
     - import_tasks: package.yml
     - import_tasks: configuration.yml
     - import_tasks: provisioning.yml
-    - import_tasks: file_sd.yml
     - import_tasks: systemd.yml
+    - import_tasks: file_sd.yml
   tags:
     - grafana
