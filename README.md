@@ -1,6 +1,6 @@
 # ansible grafana role
 
-[![Build Status](https://travis-ci.org/damex/ansible-role-grafana.svg?branch=master)](https://travis-ci.org/damex/ansible-role-grafana)
+[![Build Status](https://travis-ci.com/damex/ansible-role-grafana.svg?branch=master)](https://travis-ci.com/damex/ansible-role-grafana)
 
 The grafana role is designed to be used with Debian distributive.
 
