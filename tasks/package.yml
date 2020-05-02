@@ -12,4 +12,5 @@
         repository: "{{ grafana_repository }}"
     package_packages:
       - name: "{{ grafana_package_name }}"
+        version: "{{ grafana_package_version }}"
         state: "{{ grafana_package_state }}"
