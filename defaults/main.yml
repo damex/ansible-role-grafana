@@ -45,3 +45,5 @@ grafana_metrics_basic_auth_password: ""
 grafana_metrics_graphite_address: ""
 grafana_metrics_graphite_prefix: "grafana.{{ inventory_hostname }}."
 grafana_grafana_com_url: "https://grafana.com"
+
+grafana_datasources: []
